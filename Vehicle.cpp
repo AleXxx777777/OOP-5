@@ -1,60 +1,69 @@
 #include "Vehicle.h"
 
-// ==== Transport ====
-Transport::Transport() {
-    speed = "100 км/год";
-    price = "50000$";
-    build();
+void Vehicle::create() {
+    cout << "Assembled: Vehicle\n";
 }
 
-Transport::~Transport() {
-    destroy();
+void Vehicle::dismantle() {
+    cout << "Disassembled: Entire Vehicle\n";
 }
 
-void Transport::build() {
-    std::cout << "Створено транспорт:\nШвидкість: " << speed << "\nЦіна: " << price << "\n";
+Vehicle::Vehicle() {
+    create();
 }
 
-void Transport::destroy() {
-    std::cout << "Знищено транспорт:\nШвидкість: " << speed << "\nЦіна: " << price << "\n";
+Vehicle::~Vehicle() {
+    dismantle();
 }
 
-// ==== Ship ====
-Ship::Ship() {
-    std::cout << "Додано корабель\n";
-}
-Ship::~Ship() {
-    std::cout << "Видалено корабель\n";
-}
-
-// ==== Plane ====
-Plane::Plane() {
-    std::cout << "Додано літак\n";
-}
-Plane::~Plane() {
-    std::cout << "Видалено літак\n";
+StringVehicle::StringVehicle() {
+    cost = "moderate";
+    doors = 4;
+    transmission = "manual";
+    cout << "Has " << doors << " doors, " << transmission << " transmission and costs: " << cost << endl;
+    cout << "That's a sedan car!\n";
 }
 
-// ==== Car ====
-Car::Car() {
-    std::cout << "Додано автомобіль\n";
-}
-Car::~Car() {
-    std::cout << "Видалено автомобіль\n";
+StringVehicle::~StringVehicle() {
+    cout << "Disassembled: doors, transmission, cost\n";
 }
 
-// ==== Amphibia ====
-Amphibia::Amphibia() {
-    std::cout << "Додано амфібію\n";
-}
-Amphibia::~Amphibia() {
-    std::cout << "Видалено амфібію\n";
+WindVehicle::WindVehicle() {
+    cost = "high";
+    engine = "turbo";
+    transmission = "automatic";
+    cout << "Uses " << engine << " engine, " << transmission << " transmission and costs: " << cost << endl;
+    cout << "That's a sports car!\n";
 }
 
-// ==== PlaneAmphibia ====
-PlaneAmphibia::PlaneAmphibia() {
-    std::cout << "Додано літаючу амфібію\n";
+WindVehicle::~WindVehicle() {
+    cout << "Disassembled: engine, transmission, cost\n";
 }
-PlaneAmphibia::~PlaneAmphibia() {
-    std::cout << "Видалено літаючу амфібію\n";
+
+PercussionVehicle::PercussionVehicle() {
+    cost = "low";
+    body = "steel frame";
+    transmission = "manual";
+    cout << "Has " << body << " body, " << transmission << " transmission and costs: " << cost << endl;
+    cout << "That's a truck!\n";
+}
+
+PercussionVehicle::~PercussionVehicle() {
+    cout << "Disassembled: body, transmission, cost\n";
+}
+
+HybridVehicle::HybridVehicle() {
+    cout << "A unique combination of sedan and truck features!\n";
+}
+
+HybridVehicle::~HybridVehicle() {
+    cout << "Disassembled the hybrid vehicle\n";
+}
+
+MultiVehicle::MultiVehicle() {
+    cout << "It combines sedan, sports car, and truck capabilities\n";
+}
+
+MultiVehicle::~MultiVehicle() {
+    cout << "Disassembled the multi-vehicle\n";
 }

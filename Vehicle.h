@@ -1,44 +1,57 @@
 #pragma once
 #include <iostream>
-#include <string>
+#pragma execution_character_set("utf-8")
+using namespace std;
 
-class Transport {
+class Vehicle {
 private:
-    std::string speed;
-    std::string price;
-    void build();
-    void destroy();
+    string drive_type;
+    string cost;
+    void create();
+    void dismantle();
 public:
-    Transport();
-    virtual ~Transport();
+    Vehicle();
+    ~Vehicle();
 };
 
-class Ship : virtual public Transport {
+class StringVehicle : virtual public Vehicle {
+private:
+    int doors;
+    string transmission;
+    string cost;
 public:
-    Ship();
-    virtual ~Ship();
+    StringVehicle();
+    ~StringVehicle();
 };
 
-class Plane : virtual public Transport {
+class WindVehicle : virtual public Vehicle {
+private:
+    string engine;
+    string transmission;
+    string cost;
 public:
-    Plane();
-    virtual ~Plane();
+    WindVehicle();
+    ~WindVehicle();
 };
 
-class Car : virtual public Transport {
+class PercussionVehicle : virtual public Vehicle {
+private:
+    string body;
+    string transmission;
+    string cost;
 public:
-    Car();
-    virtual ~Car();
+    PercussionVehicle();
+    ~PercussionVehicle();
 };
 
-class Amphibia : public Ship, public Car {
+class HybridVehicle : public StringVehicle, public PercussionVehicle {
 public:
-    Amphibia();
-    virtual ~Amphibia();
+    HybridVehicle();
+    ~HybridVehicle();
 };
 
-class PlaneAmphibia : public Ship, public Plane, public Car {
+class MultiVehicle : public StringVehicle, public WindVehicle, public PercussionVehicle {
 public:
-    PlaneAmphibia();
-    virtual ~PlaneAmphibia();
+    MultiVehicle();
+    ~MultiVehicle();
 };
